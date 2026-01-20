@@ -3,182 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Book 💕</title>
+<title>Our Love Book ❤️</title>
 
-<style> 
-  .page{
-  position: relative;
-}
-
-.page img{
-  width:100%;
-  height:auto;
-  display:block;
-  position:relative;
-  z-index:1;
-}
-
-.caption{
-  position:absolute;
-  bottom:15px;
-  left:0;
-  width:100%;
-  text-align:center;
-  font-size:18px;
-  color:white;
-  background:rgba(0,0,0,0.45);
-  padding:10px;
-  box-sizing:border-box;
-  z-index:2;
-}
-
-
+<style>
 body{
   margin:0;
-  font-family: 'Arial', sans-serif;
-  background:#ffe6f0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+  font-family:Arial, sans-serif;
+  background:#ffeef4;
 }
 
-/* หน้าใส่รหัส */
-#lock{
-  text-align:center;
-}
-input{
-  padding:10px;
-  font-size:18px;
-  border-radius:10px;
-  border:none;
-}
-button{
-  padding:10px 20px;
-  margin-top:10px;
-  font-size:18px;
-  border:none;
-  border-radius:10px;
-  background:#ff4d88;
-  color:#fff;
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:20px;
 }
 
-/* หนังสือ */
-.book{
-  width:300px;
-  height:420px;
-  perspective:1200px;
-  display:none;
-}
 .page{
-  width:100%;
-  height:100%;
-  position:absolute;
-  transform-origin:left;
-  transition:1s;
-  background:white;
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
-  overflow:hidden;
-  cursor:pointer;
+  margin-bottom:30px;
 }
 
 .page img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  border-radius:15px 15px 0 0;
+  display:block;
 }
-.page p{
+
+.text-box{
+  background:#fff;
   padding:20px;
-  font-size:20px;
-  text-align:center;
-}
-.page.flipped{
-  transform:rotateY(-180deg);
+  font-size:18px;
+  line-height:1.7;
+  color:#333;
+  border-radius:0 0 15px 15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<!-- ใส่รหัส -->
-<div id="lock">
-  <h2>🔒 สุขสันต์วันครอบรอบ</h2>
-  <input type="password" id="pass" placeholder="วันครอบรอบ">
-  <br>
-  <button onclick="check()">เข้าได้เลย</button>
+  <div class="page">
+    <img src="fan1.jpg">
+    <div class="text-box">
+      ข้อความยาวของรูปแรก ❤️  
+      อยากเขียนกี่ย่อหน้าก็ได้  
+      ข้อความจะติดกับรูปนี้ตลอด
+    </div>
+  </div>
+
+  <div class="page">
+    <img src="fan2.jpg">
+    <div class="text-box">
+      รูปที่สองกับความทรงจำของเรา  
+      เขียนยาวได้ ไม่จำกัด
+    </div>
+  </div>
+
 </div>
-
-<!-- หนังสือ -->
-<div class="book" id="book">
-
-<div class="page" onclick="flip(this)">
-  <img src="fan1.jpg">
-  <div class="caption">วันแรกที่ไปเที่ยวด้วยกัน 🌈</div>
-</div>
-
-<div class="page" onclick="flip(this)">
-  <img src="fan2.jpg">
-  <div class="caption">รอยยิ้มที่เราชอบที่สุด 😊</div>
-</div>
-
-<div class="page" onclick="flip(this)">
-  <img src="fan3.jpg">
-  <div class="caption">จะจับมือไปแบบนี้ตลอดไป 🤍</div>
-</div>
-
-<div class="page" onclick="flip(this)">
-  <img src="fan4.jpg">
-  <div class="caption">จะจับมือไปแบบนี้ตลอดไป 🤍</div>
-</div>
-
-<script>
-let password = "1234567";
-
-function check(){
-  let input = document.getElementById("pass").value;
-  if(input === password){
-    document.getElementById("lock").style.display="none";
-    document.getElementById("book").style.display="block";
-  }else{
-    alert("รหัสไม่ถูกต้อง 😝");
-  }
-}
-
-const pages = document.querySelectorAll(".page");
-let maxZ = pages.length;
-
-pages.forEach((page, index) => {
-  page.style.zIndex = maxZ - index;
-});
-
-function flip(page){
-  if (!page.classList.contains("flipped")) {
-    page.classList.add("flipped");
-    page.style.zIndex = 0;
-  }
-}
-</script>
-
-
-
-<script>
-const pages = document.querySelectorAll(".page");
-let maxZ = pages.length;
-
-pages.forEach((page, index) => {
-  page.style.zIndex = maxZ - index;
-});
-
-function flip(page){
-  if (!page.classList.contains("flipped")) {
-    page.classList.add("flipped");
-    page.style.zIndex = 0;
-  }
-}
-</script>
-
-
-  
 </body>
 </html>
