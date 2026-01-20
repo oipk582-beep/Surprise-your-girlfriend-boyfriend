@@ -3,13 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Book ❤️</title>
+<title>For My Love ❤️</title>
 
 <style>
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#ffeef4;
+  font-family: Arial, sans-serif;
+  background:#fff0f5;
+}
+
+/* หน้าล็อครหัส */
+#lockScreen{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.lock-box{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  text-align:center;
+}
+
+.lock-box h2{
+  margin-bottom:15px;
+}
+
+.lock-box input{
+  padding:10px;
+  font-size:16px;
+  width:100%;
+  margin-bottom:15px;
+}
+
+.lock-box button{
+  padding:10px 20px;
+  font-size:16px;
+  background:#ff5f8f;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* เนื้อหาเว็บ */
+#content{
+  display:none;
 }
 
 .container{
@@ -18,13 +60,18 @@ body{
   padding:20px;
 }
 
+h1{
+  text-align:center;
+  color:#ff4f8b;
+}
+
 .page{
   margin-bottom:30px;
 }
 
 .page img{
   width:100%;
-  border-radius:15px 15px 0 0;
+  border-radius:16px 16px 0 0;
   display:block;
 }
 
@@ -33,49 +80,74 @@ body{
   padding:20px;
   font-size:18px;
   line-height:1.7;
-  color:#333;
-  border-radius:0 0 15px 15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  border-radius:0 0 16px 16px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 </style>
 </head>
 
 <body>
-<div class="container">
 
-  <div class="page">
-    <img src="fan1.jpg">
-    <div class="text-box">
-      ข้อความยาวของรูปแรก ❤️  
-      อยากเขียนกี่ย่อหน้าก็ได้  
-      ข้อความจะติดกับรูปนี้ตลอด
-    </div>
+<!-- หน้าใส่รหัส -->
+<div id="lockScreen">
+  <div class="lock-box">
+    <h2>🔐 สุขสันต์วันครอบรอบ</h2>
+    <input type="password" id="password" placeholder="วันครอบรอบ">
+    <button onclick="checkPassword()">เข้าไปด้เลย 💖</button>
+    <p id="error" style="color:red;"></p>
   </div>
-
-  <div class="page">
-    <img src="fan2.jpg">
-    <div class="text-box">
-      รูปที่สองกับความทรงจำของเรา  
-      เขียนยาวได้ ไม่จำกัด
-    </div>
-  </div>
-
-<div class="page">
-    <img src="fan3.jpg">
-    <div class="text-box">
-      รูปที่สองกับความทรงจำของเรา  
-      เขียนยาวได้ ไม่จำกัด
-    </div>
-  </div>
-
-<div class="page">
-    <img src="fan4.jpg">
-    <div class="text-box">
-      รูปที่สองกับความทรงจำของเรา  
-      เขียนยาวได้ ไม่จำกัด
-    </div>
-  </div>
-
 </div>
+
+<!-- เนื้อหาเว็บ -->
+<div id="content">
+  <div class="container">
+    <h1>ถึงแฟนของเค้า ❤️<br><span id="loverName"></span></h1>
+
+    <div class="page">
+      <img src="fan1.jpg">
+      <div class="text-box">
+        รูปแรกของเรา  
+        วันที่เค้าเริ่มรักเธอ 💕
+      </div>
+    </div>
+
+    <div class="page">
+      <img src="fan2.jpg">
+      <div class="text-box">
+        ทุกครั้งที่อยู่ด้วยกัน  
+        เค้ามีความสุขเสมอ 🥰
+      </div>
+    </div>
+
+    <div class="page">
+      <img src="fan3.jpg">
+      <div class="text-box">
+        ไม่ว่าจะผ่านอะไร  
+        เค้าขอสัญญาว่าจะอยู่ข้างเธอ 💖
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* 🔐 ตั้งรหัสตรงนี้ */
+const correctPassword = "1234";
+
+/* ❤️ ตั้งชื่อแฟนตรงนี้ */
+const loverName = "ชื่อแฟนของคุณ";
+
+function checkPassword(){
+  const input = document.getElementById("password").value;
+  if(input === correctPassword){
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("loverName").innerText = loverName;
+  }else{
+    document.getElementById("error").innerText = "รหัสไม่ถูกนะ ลองใหม่ 💔";
+  }
+}
+</script>
+
 </body>
 </html>
