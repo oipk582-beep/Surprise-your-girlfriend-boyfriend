@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Book 💕</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Arial', sans-serif;
+  background:#ffe6f0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* หน้าใส่รหัส */
+#lock{
+  text-align:center;
+}
+input{
+  padding:10px;
+  font-size:18px;
+  border-radius:10px;
+  border:none;
+}
+button{
+  padding:10px 20px;
+  margin-top:10px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  background:#ff4d88;
+  color:#fff;
+}
+
+/* หนังสือ */
+.book{
+  width:300px;
+  height:420px;
+  perspective:1200px;
+  display:none;
+}
+.page{
+  width:100%;
+  height:100%;
+  position:absolute;
+  transform-origin:left;
+  transition:1s;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  overflow:hidden;
+}
+.page img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.page p{
+  padding:20px;
+  font-size:20px;
+  text-align:center;
+}
+.page.flipped{
+  transform:rotateY(-180deg);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ใส่รหัส -->
+<div id="lock">
+  <h2>🔒 สุขสันต์วันครอบรอบ</h2>
+  <input type="password" id="pass" placeholder="วันครอบรอบ">
+  <br>
+  <button onclick="check()">เข้าได้เลย</button>
+</div>
+
+<!-- หนังสือ -->
+<div class="book" id="book">
+
+  <div class="page" onclick="flip(this)">
+    <p>💕 สุขสันต์วันครอบรอบ 💕<br><br>แตะเพื่อเปิด</p>
+  </div>
+
+  <div class="page" onclick="flip(this)">
+    <img src="https://i.imgur.com/IMAGE1.jpg">
+  </div>
+
+  <div class="page" onclick="flip(this)">
+    <img src="https://i.imgur.com/IMAGE2.jpg">
+  </div>
+
+  <div class="page" onclick="flip(this)">
+    <img src="https://i.imgur.com/IMAGE3.jpg">
+  </div>
+
+  <div class="page">
+    <p>รักเธอที่สุด 💖<br>สุขสันต์วันครบรอบ</p>
+  </div>
+
+</div>
+
+<script>
+let password = "1234567"; // <<< เปลี่ยนรหัสตรงนี้
+
+function check(){
+  let input = document.getElementById("pass").value;
+  if(input === password){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("book").style.display="block";
+  }else{
+    alert("รหัสไม่ถูกต้อง 😝");
+  }
+}
+
+function flip(page){
+  page.classList.toggle("flipped");
+}
+</script>
+
+</body>
+</html>
