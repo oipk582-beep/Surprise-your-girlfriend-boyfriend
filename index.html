@@ -6,13 +6,22 @@
 <title>Our Love Book 💕</title>
 
 <style> 
-   .page{
+  .page{
   position: relative;
+}
+
+.page img{
+  width:100%;
+  height:auto;
+  display:block;
+  position:relative;
+  z-index:1;
 }
 
 .caption{
   position:absolute;
   bottom:15px;
+  left:0;
   width:100%;
   text-align:center;
   font-size:18px;
@@ -20,7 +29,9 @@
   background:rgba(0,0,0,0.45);
   padding:10px;
   box-sizing:border-box;
+  z-index:2;
 }
+
 
 body{
   margin:0;
